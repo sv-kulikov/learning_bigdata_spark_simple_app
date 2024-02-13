@@ -1,4 +1,4 @@
-package org.itpu.bigdata.spark;
+package biz.svyatoslav.learning.bigdata.spark;
 
 import org.apache.spark.sql.SaveMode;
 import org.apache.spark.sql.SparkSession;
