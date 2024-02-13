@@ -1,0 +1,11 @@
+b_id,b_name,b_year,b_quantity,a_name,g_name
+2,The Fishermen and the Golden Fish,1990,3,Alexander Pushkin,Poetry
+2,The Fishermen and the Golden Fish,1990,3,Alexander Pushkin,Classic
+3,Foundation and Empire,2000,5,Isaac Asimov,Science Fiction
+4,Programming Psychology,1998,1,Dale Carnegie,Programming
+4,Programming Psychology,1998,1,Dale Carnegie,Psychology
+4,Programming Psychology,1998,1,Bjarne Stroustrup,Programming
+4,Programming Psychology,1998,1,Bjarne Stroustrup,Psychology
+5,The C++ Programming Language,1996,3,Bjarne Stroustrup,Programming
+7,The Art of Computer Programming,1993,7,Donald Knuth,Programming
+7,The Art of Computer Programming,1993,7,Donald Knuth,Classic
