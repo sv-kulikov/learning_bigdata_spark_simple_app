@@ -4,6 +4,9 @@ import org.apache.spark.sql.SaveMode;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
+
+import java.sql.SQLOutput;
+
 import static org.apache.spark.sql.functions.*;
 
 public class LibraryDataProcessor {
@@ -33,6 +36,8 @@ public class LibraryDataProcessor {
 
     public static void main(String[] args) {
 
+        System.out.println("Started! Give us a sec...");
+
         // Initialize Spark Session
         SparkSession spark = SparkSession.builder()
                 .appName("Library Data Processing")
@@ -40,22 +45,28 @@ public class LibraryDataProcessor {
                 .getOrCreate();
 
         // Step 1: Read the CSV file
+        System.out.println("Reading CSV...");
         Dataset<Row> libraryData = spark.read()
                 .option("header", "true")
                 .option("inferSchema", "true")
                 .csv(sourceCSVPath);
 
         // Step 2: Filter out records with null in 'b_quantity'
+        System.out.println("Filtering data (excluding records with null in 'b_quantity')...");
         Dataset<Row> nonNullData = libraryData.filter(col("b_quantity").isNotNull());
 
         // Step 3: Filter out books issued before 1990
+        System.out.println("Filtering data (excluding books issued before 1990)...");
         Dataset<Row> filteredData = nonNullData.filter(col("b_year").geq(1990));
 
         // Step 4: Output the result schema and result itself
+        System.out.println("Here's the schema:");
         filteredData.printSchema();
+        System.out.println("Here's the data:");
         filteredData.show();
 
         // Step 5: Save the result to a new CSV file
+        System.out.println("Writing final output CSV file...");
         filteredData.write()
                 .option("header", "true")
                 .mode(SaveMode.Overwrite)
@@ -63,5 +74,6 @@ public class LibraryDataProcessor {
 
         // Close the session
         spark.stop();
+        System.out.println("Done! :)");
     }
 }
