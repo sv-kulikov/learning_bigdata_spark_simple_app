@@ -26,10 +26,10 @@ public class LibraryDataProcessor {
     // The output of processed data will be stored in "data_output" folder of this project.
 
     // Place your "library.csv" file here (or change the path if needed):
-    private static String sourceCSVPath = "./data_input/*.csv";
+    private static final String sourceCSVPath = "./data_input/*.csv";
 
     // The output will be stored here (change the path if needed):
-    private static String resultingCSVPath = "./data_output";
+    private static final String resultingCSVPath = "./data_output";
 
     public static void main(String[] args) {
 
